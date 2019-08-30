@@ -1,5 +1,7 @@
 <h3>Getting directly</h3>
-<p [ngStyle]="{backgroundColor: getColor()}">{{ 'server' }} with ID {{ serverId }} is {{ serverStatus }}</p>
+<p [ngStyle]="{backgroundColor: getColor()}"
+  [ngClass]="{online: serverStatus ==='online'}"
+>{{ 'server' }} with ID {{ serverId }} is {{ serverStatus }}</p>
 <hr />
 <h3>calling a method</h3>
 <p>{{ 'server' }} with ID {{ serverId }} is {{ getString() }}</p>
