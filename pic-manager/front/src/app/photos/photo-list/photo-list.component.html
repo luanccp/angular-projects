@@ -6,6 +6,10 @@
 
 <app-photos [photos]="photos | filterByDescription: filter"> </app-photos>
 
+<app-load-button (click)="load()" [hasMore]="hasMore"></app-load-button>
+
+
+
 <!-- 
     [] component to view 
     () view to componet
