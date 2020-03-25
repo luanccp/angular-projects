@@ -1,1 +1,12 @@
- <app-photos [photos]="photos">  </app-photos>
+<div class="text-center mt-3 mb-3">
+    <form>
+        <input (keyup)="filter = $event.target.value" class="rounded" type="search" placeholder="search..." autofocus>
+    </form>
+</div>
+
+<app-photos [photos]="photos | filterByDescription: filter"> </app-photos>
+
+<!-- 
+    [] component to view 
+    () view to componet
+-->
