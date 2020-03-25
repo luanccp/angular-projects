@@ -7,10 +7,6 @@ import { Photo } from '../../photo/photo';
   templateUrl: './photos.component.html',
   styleUrls: ['./photos.component.css']
 })
-
-/**
- * When we implements onChanges we will have a react component
- */
 export class PhotosComponent implements OnChanges {
   
   @Input() photos: Photo[] = [];
@@ -18,7 +14,6 @@ export class PhotosComponent implements OnChanges {
   
   constructor() { }
   
-  //changes include all Input properties, so we have to verify what the exactly variable change
   ngOnChanges(changes: SimpleChanges) {
     if(changes.photos) 
       this.rows = this.groupColumns(this.photos);

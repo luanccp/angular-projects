@@ -1,16 +1,12 @@
-<div class="text-center mt-3 mb-3">
-    <form>
-        <input (keyup)="debounce.next($event.target.value)" class="rounded" type="search" placeholder="search..." autofocus>
-    </form>
-</div>
+<app-search 
+    (onTyping)="filter = $event" [value]="filter">
+</app-search>
 
-<app-photos [photos]="photos | filterByDescription: filter"> </app-photos>
+<app-photos 
+    [photos]="photos | filterByDescription: filter">
+</app-photos>
 
-<app-load-button (click)="load()" [hasMore]="hasMore"></app-load-button>
-
-
-
-<!-- 
-    [] component to view 
-    () view to componet
--->
+<app-load-button 
+    (click)="load()" 
+    [hasMore]="hasMore">
+</app-load-button>
