@@ -1,6 +1,6 @@
 <div class="text-center mt-3 mb-3">
     <form>
-        <input (keyup)="filter = $event.target.value" class="rounded" type="search" placeholder="search..." autofocus>
+        <input (keyup)="debounce.next($event.target.value)" class="rounded" type="search" placeholder="search..." autofocus>
     </form>
 </div>
 
