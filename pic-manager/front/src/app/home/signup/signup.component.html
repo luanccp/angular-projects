@@ -1,4 +1,4 @@
-<form [formGroup]="signupForm" class="form mt-4">
+<form [formGroup]="signupForm" class="form mt-4" (submit)="signup()">
   <div class="form-group">
     <input formControlName="email" class="form-control" placeholder="email" autofocus>
     <app-vmessage *ngIf="signupForm.get('email').errors?.required" text="Email is required!">
@@ -14,9 +14,10 @@
   <div class="form-group">
     <input formControlName="userName" class="form-control" placeholder="user name">
     <app-vmessage *ngIf="signupForm.get('userName').errors?.lowerCase" text="Must be lower case">
-      >
 
     </app-vmessage>
+    <app-vmessage text="Username already taken" *ngIf="signupForm.get('userName').errors?.userNameTaken">
+    </app-vmessage><small *ngIf="signupForm.get('userName').valid" class="text-success">User available</small>
   </div>
 
   <div class="form-group">
@@ -29,7 +30,7 @@
     </app-vmessage>
   </div>
 
-  <button [disabled]="signupForm.invalid" class="btn btn-primary btn-block">Register</button>
+  <button [disabled]="signupForm.invalid || signupForm.pending" class="btn btn-primary btn-block">Register</button>
 
   <p>Already a user? <a [routerLink]="['']">Sign In!</a></p>
 </form>
